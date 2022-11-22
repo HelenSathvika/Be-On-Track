@@ -1,5 +1,4 @@
 #! /usr/bin/python3
-#try
 import psycopg2
 import sample
 from flask import Flask, request, jsonify, render_template
@@ -27,7 +26,7 @@ def interviewbit():
 @app.route('/hackerearth',methods=['POST'])
 def hackerearth():
  '''
- For rendering interviewbit
+ For rendering hackerearth
  '''
  conn=get_db_connection()
  cur=conn.cursor()
@@ -38,7 +37,7 @@ def hackerearth():
 @app.route('/leetcode',methods=['POST'])
 def leetcode():
  '''
- For rendering interviewbit
+ For rendering leetcode
  '''
  conn=get_db_connection()
  cur=conn.cursor()
@@ -48,12 +47,46 @@ def leetcode():
 @app.route('/atcoder',methods=['POST'])
 def atcoder():
  '''
- For rendering interviewbit
+ For rendering atcoder
  '''
  conn=get_db_connection()
  cur=conn.cursor()
  cur.execute('SELECT * FROM atcoder;')
  x=cur.fetchall()
  return render_template('atcoder.html',output4=x)
+
+@app.route('/toph',methods=['POST'])
+def toph():
+ '''
+ For rendering toph
+ '''
+ conn=get_db_connection()
+ cur=conn.cursor()
+ cur.execute('SELECT * FROM toph;')
+ x=cur.fetchall()
+ return render_template('toph.html',output5=x)
+
+@app.route('/icpc',methods=['POST'])
+def icpc():
+ '''
+ For rendering icpc
+ '''
+ conn=get_db_connection()
+ cur=conn.cursor()
+ cur.execute('SELECT * FROM icpc;')
+ x=cur.fetchall()
+ return render_template('icpc.html',output6=x)
+
+@app.route('/hackerearth1',methods=['POST'])
+def hactherearth1():
+ '''
+ For rendering atcoder
+ '''
+ conn=get_db_connection()
+ cur=conn.cursor()
+ cur.execute('SELECT * FROM hackerearth1;')
+ x=cur.fetchall()
+ return render_template('hackerearth1.html',output7=x)
+
 if __name__ == "__main__":
  app.run(host='127.0.0.0',port='5000')

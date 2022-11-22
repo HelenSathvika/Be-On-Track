@@ -129,4 +129,58 @@ for i in range(len(c)):
 for b in a:
  cursor.execute("INSERT into atcoder(name,date) VALUES (%s,%s)", b)
 conn.commit()
+
+sql='DROP TABLE IF EXISTS toph'
+cursor.execute(sql)
+sql = '''CREATE TABLE toph(id  SERIAL NOT NULL,name varchar(100) not null,date varchar(100) not null)'''
+cursor.execute(sql)
+Url="https://toph.co/contests/current"
+headers = {'User-Agent':"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:15.0) Gecko/20100101 Firefox/15.0.1"}
+r=requests.get(url=Url,headers=headers);
+soup=BeautifulSoup(r.content,'html.parser')
+table=soup.find('div',attrs={'class':'col-md-9'}).findAll('span',attrs={'class':'text'})
+table5=soup.find('div',attrs={'class':'col-md-9'}).findAll('a')
+d=[]
+c=[]
+for row in table:
+ c.append(row.text)
+for row in table5:
+ d.append(row.text)
+a=[]
+for i in range(len(c)):
+ x=[]
+ x.append(d[i])
+ x.append(c[i])
+ a.append((x))
+for b in a:
+ cursor.execute("INSERT into toph(name,date) VALUES (%s,%s)", b)
+conn.commit()
+
+sql='DROP TABLE IF EXISTS icpc'
+cursor.execute(sql)
+sql = '''CREATE TABLE icpc(id  SERIAL NOT NULL,name varchar(100) not null,date varchar(100) not null)'''
+cursor.execute(sql)
+Url="https://u.icpc.global/events/"
+headers = {'User-Agent':"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:15.0) Gecko/20100101 Firefox/15.0.1"}
+r=requests.get(url=Url,headers=headers);
+soup=BeautifulSoup(r.content,'html.parser')
+table=soup.find('div',attrs={'class':'et_pb_row et_pb_row_1'}).findAll('p')
+table6=soup.find('div',attrs={'class':'et_pb_row et_pb_row_1'}).findAll('h2')
+d=[]
+c=[]
+for row in table:
+ d.append(row.text)
+for row in table6:
+ c.append(row.text)
+a=[]
+j=1
+for i in range(len(c)):
+ x=[]
+ x.append(c[i])
+ x.append(d[j])
+ a.append((x))
+ j=j+2
+for b in a:
+ cursor.execute("INSERT into icpc(name,date) VALUES (%s,%s)", b)
+conn.commit()
 conn.close()
