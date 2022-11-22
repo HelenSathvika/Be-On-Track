@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Home</title>
+    <style>
+     *{ 
+        margin:0;
+        padding:0;
+      }
+      body
+      { 
+        background-color: 303030;
+        
+      }
+      .main_container {
+           margin-top:10vh;
+           display:flex;
+           flex-direction:column;
+           align-items:center;
+      
+         }
+         .grid-container{
+           display: grid;
+           row-gap:10px;
+           width:80vw;
+           column-gap: 20px;
+           grid-template-columns:auto auto;
+           background-color: #303030;
+           padding: 10px;
+         }
+         .grid-item{
+         background-color: #FFE9EB;
+         border: 1px solid #000;
+         padding:20px;
+         height: 20vh;
+         display: flex;
+         flex-direction:row;
+         align-items:center
+         }
+   
+        
+ </style>
+ </head>
+ <body>
+ <div class="main-container">
+     <div class="grid-container">
+     <div class="grid-item">
+    <h3>interviewbit</h3>
+    <form action="{{ url_for('interviewbit')}}" method="post">
+        <button type="submit">CONTESTS</button>
+   </div>     
+    </form>
+    
+      <div class="grid-item">
+     <h3>Hackerearth</h3>
+     <form action="{{ url_for('hackerearth')}}" method="post">
+         <button type="submit">CONTESTS</button>
+     </form>
+     </div>
+     <div class="grid-item">
+       <h3>Leetcode</h3>
+      <form action="{{ url_for('leetcode')}}" method="post">
+          <button type="submit">CONTESTS</button>
+      </form>     
+      </div>  
+       <div class="grid-item">
+         <h3>Atcoder</h3>
+        <form action="{{ url_for('atcoder')}}" method="post">
+            <button type="submit">CONTESTS</button>
+        </form>    
+        </div>  
+ </body>
+ <html>
+    
