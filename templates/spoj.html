@@ -60,12 +60,13 @@
     <div class="navbar">
        <h1>codingcontests calendar<h1>
     </div>
-     {% for row in output4 %}
+     {% for row in output8 %}
     <div class="grid-container">
       <div class="grid-item">
         
           <h3>{{row[1]}}</h3>
           <h4>Start Date:{{row[2]}}</h4>
+           <h4>End Date:{{row[3]}}</h4>
          </div>
      
   {% endfor %}
@@ -75,5 +76,4 @@
 </body>
 
 </html>
-
 

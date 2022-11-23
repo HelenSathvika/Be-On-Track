@@ -1,18 +1,78 @@
-<html>
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>leetcode</title>
-</head>
-<body>
-<table>
-                  {% for row in output3 %}
-                  <tr>
-                    <td>{{row[0]}}</td>
-                    <td>{{row[1]}}</td>
-                    <td>{{row[2]}}</td>
-                      </tr>
-                  {% endfor %}
-                
-                  </table>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pavani's Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #F1F1F1;
+        }
+        .navbar{
+            width: 100%;
+            height: 30%;
+            background-color: #000;
+        }
+        .navbar h1{
+            color: #009360;
+            text-align: center;
+            font-size: 30px;
+        }
+        .grid-container{
+            display: grid;
+            row-gap: 30px;
+            width: 30vw;
+            column-gap: 20px;
+            
+            background-color: #F1F1F1;
+            padding: 10px;
+            margin-left: auto;
+            margin-top: 30px;
+            margin-right: auto;
+        }
+        .grid-item{
+            background-color: #ffffff;
+            /* border: 1px solid #000; */
+            border-radius: 4px;
+            padding: 20px;
+            box-shadow: 10px 10px 30px #D5D5D5;
+            height: 15vh;
+            align-items: center;
+            text-align: center;
+            
+        }
+
+        .grid-item h3{
+            font-size: 30px;
+        }
+      .grid-item h4{
+          font-size: 20px;
+      }
+    </style>
+    </head>
+     <body>  
+    <div class="navbar">
+    <h1>codingcontests calendar<h1>
+    </div>
+     {% for row in output3 %}
+    <div class="grid-container">
+      <div class="grid-item">
+        
+          <h3>{{row[1]}}</h3>
+          <h4>Start Date:{{row[2]}}</h4>
+         </div>
+     
+  {% endfor %}
+  </div>
+                 
+                 
 </body>
 
 </html>
+
